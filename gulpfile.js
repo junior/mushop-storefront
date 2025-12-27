@@ -1,5 +1,9 @@
+
+const gulp     = require('gulp'),
+  fs           = require('fs'),
+  path         = require('path'),
+  argv         = require('minimist')(process.argv.slice(2)),
   less         = require('gulp-less'),
-  header       = require('gulp-header'),
   rev          = require('gulp-rev'),
   revReplace   = require('gulp-rev-replace'),
   sync         = require('browser-sync'),

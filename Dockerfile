@@ -3,7 +3,7 @@ ARG version
 ###############################
 #    Build stage (node/npm)   #
 ###############################
-FROM --platform=${BUILDPLATFORM:-linux/amd64} node:16-alpine as builder
+FROM --platform=${BUILDPLATFORM:-linux/amd64} node:20-alpine AS builder
 
 RUN apk update && apk add --no-cache \
     autoconf \
@@ -22,7 +22,8 @@ RUN npm config set loglevel warn \
 
 # install dependencies
 COPY package.json /tmp/package.json
-COPY package-lock.json /tmp/package-lock.json
+# COPY package-lock.json /tmp/package-lock.json
+RUN cd /tmp && npm install --include=dev
 RUN cd /tmp && npm ci
 RUN mkdir -p /usr/src/app && cp -a /tmp/node_modules /usr/src/app/
 RUN rm -rf /tmp/node_modules
@@ -33,15 +34,14 @@ COPY src src
 COPY *.js* ./
 COPY VERSION VERSION
 ARG version
-ENV VERSION ${version}
-
-ENV NODE_ENV "production"
+ENV VERSION=${version}
+ENV NODE_ENV=production
 RUN npm run build
 
 ###############################
 # Webserver container (nginx) #
 ###############################
-FROM --platform=${TARGETPLATFORM:-linux/amd64} nginxinc/nginx-unprivileged:1.20-alpine
+FROM --platform=${TARGETPLATFORM:-linux/amd64} nginxinc/nginx-unprivileged:1.26-alpine
 
 USER root
 RUN chown -R 101:101 /usr/share/nginx
