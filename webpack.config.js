@@ -1,7 +1,3 @@
-/**
- * Copyright © 2019, Oracle and/or its affiliates. All rights reserved.
- * The Universal Permissive License (UPL), Version 1.0
- */
 const path = require('path');
 const webpack = require('webpack');
 
@@ -45,9 +41,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.BannerPlugin({
-      banner: `Copyright (c) ${new Date().getFullYear()}, Oracle and/or its affiliates. All rights reserved.\nThe Universal Permissive License (UPL), Version 1.0`
-    }),
     new webpack.DefinePlugin({
       VERSION: JSON.stringify(VERSION || pkg.version),
       PRODUCTION: JSON.stringify(NODE_ENV === 'production'),

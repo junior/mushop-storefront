@@ -1,7 +1,3 @@
-const gulp     = require('gulp'),
-  fs           = require('fs'),
-  path         = require('path'),
-  argv         = require('minimist')(process.argv.slice(2)),
   less         = require('gulp-less'),
   header       = require('gulp-header'),
   rev          = require('gulp-rev'),
@@ -25,13 +21,6 @@ require('dotenv').config();
 const opt = {
   buildDir: 'build'
 };
-
-const scriptBanner = [
-  '/**',
-  `* Copyright © ${new Date().getFullYear()}, Oracle and/or its affiliates. All rights reserved.`,
-  '* The Universal Permissive License (UPL), Version 1.0',
-  '*/'
-].join('\n');
 
 // load env
 
@@ -72,7 +61,6 @@ gulp.task('styles', function() {
     // .pipe(concat('style.css'))
     .pipe(postcss([autoprefixer()]))
     .pipe(csso())
-    .pipe(header(scriptBanner))
     .pipe(gulp.dest(`${opt.buildDir}/styles`))
     .pipe(sync.stream({
       once: true

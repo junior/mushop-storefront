@@ -4,7 +4,6 @@ Responsive eCommerce storefront single page application built on microservices
 architecture.
 
 - Built using [UIkit](https://getuikit.com)
-- Original templates by [Roman Chekurov](https://github.com/chekromul/uikit-ecommerce-template)
 
 ## Overview
 
@@ -34,10 +33,6 @@ The project leverages:
     <tr>
       <td><a href="https://docker.com">Docker</a></td>
       <td>>= 1.12</td>
-    </tr>
-    <tr>
-      <td><a href="https://docs.docker.com/compose/">Docker Compose</a></td>
-      <td>>= 1.8.0</td>
     </tr>
     <tr>
       <td><a href="http://www.gnu.org/s/make">Make</a></td>
@@ -79,8 +74,8 @@ Standard build
 docker build -t mushop/storefront .
 ```
 
-The storefront also supports **BETA** build option where an override to the 
-service semver can be provided as a build argument. When the supplied version 
+The storefront also supports **BETA** build option where an override to the
+service semver can be provided as a build argument. When the supplied version
 matches `/beta/i`, a banner is shown in the storefront UI. This is used for the
 purpose of demonstrating service mesh
 
@@ -88,6 +83,10 @@ purpose of demonstrating service mesh
 docker build --build-arg version=2.x-beta -t mushop/storefront .
 ```
 
-## Copyright and Credits
+## Credits
 
 - Storefront based on templates by [Roman Chekurov](https://github.com/chekromul/uikit-ecommerce-template)
+
+## License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.

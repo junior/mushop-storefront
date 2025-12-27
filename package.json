@@ -2,6 +2,7 @@
   "name": "mushop-storefront",
   "version": "2.3.0",
   "description": "MuShop eCommerce demo",
+  "license": "Apache-2.0",
   "scripts": {
     "start": "gulp",
     "server": "gulp server",
