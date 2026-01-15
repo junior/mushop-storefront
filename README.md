@@ -22,24 +22,10 @@ The project leverages:
 
 ### Dependencies
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="https://docker.com">Docker</a></td>
-      <td>>= 1.12</td>
-    </tr>
-    <tr>
-      <td><a href="http://www.gnu.org/s/make">Make</a></td>
-      <td>>= 3.81</td>
-    </tr>
-  </tbody>
-</table>
+| Name                                | Version |
+|-------------------------------------|---------|
+| [Docker](https://docker.com).       | >= 1.12 |
+| [Make](http://www.gnu.org/s/make)   | >= 3.81 |
 
 ### Local
 
